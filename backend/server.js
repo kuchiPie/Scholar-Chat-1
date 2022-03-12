@@ -5,6 +5,7 @@ const {chats} = require('./data/data');
 const connectDB = require('./config/db');
 const colors= require('colors');
 const userRoutes = require('./routes/userRoutes');
+const {notFound,errorHandler} = require('./middlewares/errorMiddleware');
 
 // unlocking the functions of dotenv
 const app = express();
@@ -23,6 +24,8 @@ app.get('/',(req,res)=>{
 app.use('/api/user',userRoutes);
 
 // Error handling middlewares, if in case we tried to access any undefined route
+app.use(notFound);
+app.use(errorHandler);
 
 // port details in env file is imported
 const PORT = process.env.PORT || 5000

@@ -14,7 +14,7 @@ const resisterUser=asyncHandler(async(req,res)=>{
     const userExists = await User .findOne({email});
 
     if(userExists){
-        res.statusCode(400);
+        res.status(400);
         throw new Error("User Alredy Exists");
     }
 
