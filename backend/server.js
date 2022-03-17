@@ -11,9 +11,9 @@ const {notFound,errorHandler} = require('./middlewares/errorMiddleware');
 // unlocking the functions of dotenv
 const app = express();
 dotenv.config();
+connectDB();
 
 // creating app variable with express();
-connectDB();
 
 // Telling the app to accept JSON data
 app.use(express.json());

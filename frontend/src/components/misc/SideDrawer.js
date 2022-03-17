@@ -1,4 +1,4 @@
-import {Input,DrawerBody,DrawerContent,DrawerHeader,useDisclosure,DrawerOverlay, Box, Button, Tooltip ,Text, Menu, MenuButton, MenuList, Avatar, MenuItem, MenuDivider, Drawer, useToast} from '@chakra-ui/react';
+import {Input,DrawerBody,DrawerContent,DrawerHeader,useDisclosure,DrawerOverlay, Box, Button, Tooltip ,Text, Menu, MenuButton, MenuList, Avatar, MenuItem, MenuDivider, Drawer, useToast, useFocusEffect, Spinner} from '@chakra-ui/react';
 import React, { useState } from 'react'
 import { BellIcon,ChevronDownIcon } from '@chakra-ui/icons'
 import { ChatState } from '../../Context/ChatProvider';
@@ -46,12 +46,14 @@ const SideDrawer = () => {
             };
 
             const {data} = await axios.get(`/api/user?search=${search}`,config);
+            
             setSearchResult(data);
             // console.log(data);
             setLoading(false);
         } catch (error) {
             toast({
                 title:'Some Error Occured',
+                description:error.message,
                 status:'error',
                 duration:5000,
                 isClosable:true,
@@ -71,12 +73,17 @@ const SideDrawer = () => {
             };
 
             const {data} = await axios.post('/api/chat',{userId},config);
+
+            if(!chats.find((c)=>c._id===data._id)){
+                setChats([data,...chats]);
+            }
             setSelectedChat(data);
             setLoadingChat(false);
             onClose();
         } catch (error) {
             toast({
                 title:'Error in fetching chat',
+                description:error.message,
                 status:'error',
                 duration:5000,
                 isClosable:true,
@@ -135,6 +142,7 @@ const SideDrawer = () => {
                                 <UserListItem key={currUser._id} user={currUser} handleFunction={()=>accessChat(currUser._id)}/>
                             ))
                         )}
+                        {loadingChat && <Spinner ml='auto' d='flex'/>}
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>
