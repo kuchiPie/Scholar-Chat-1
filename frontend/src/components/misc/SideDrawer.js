@@ -46,7 +46,7 @@ const SideDrawer = () => {
             };
 
             const {data} = await axios.get(`/api/user?search=${search}`,config);
-            
+
             setSearchResult(data);
             // console.log(data);
             setLoading(false);
@@ -97,7 +97,7 @@ const SideDrawer = () => {
             <Box d='flex' justifyContent={'space-between'} alignContent={'center'} bg={'white'} w={'100%'} p={'5px 10px 5px 10px'} borderWidth='5px'>
                 <Tooltip label="Search Users To Chat With" hasArrow placement='bottom-end'>
                     <Button variant={'ghost'} onClick={onOpen} ref={btnRef}>
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i className="fa-solid fa-magnifying-glass"></i>
                         <Text d={{base:'none',md:'flex'}} px={'4'}>Search User</Text>
                     </Button>
                 </Tooltip>
