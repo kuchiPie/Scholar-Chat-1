@@ -62,11 +62,6 @@ const Login = () => {
             setLoading(false);
         }
     };
-
-    const setGuestUser=()=>{
-        setmail('guest@example.com');
-        setPassword('123456');
-    };
  
    return (
      <VStack spacing='5px'>
@@ -87,7 +82,6 @@ const Login = () => {
          </FormControl>
  
          <Button colorScheme={'blue'} width='100%' style={{marginTop:15}} onClick={submitHandler} isLoading={loading}>Sign Up</Button>
-         <Button variant={'solid'} colorScheme='red' width={'100%'} onClick={setGuestUser}>Guest User Credentials</Button>
  
      </VStack>
    )

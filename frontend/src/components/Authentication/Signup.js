@@ -149,7 +149,7 @@ const Signup = () => {
             </InputGroup>
         </FormControl>
 
-        <FormControl id='pic' isRequired>
+        <FormControl id='pic'>
             <FormLabel>Upload Your Picture</FormLabel>
             <Input type={'file'} p={1.5} accept='image/*' onChange={(event)=>postDetails(event.target.files[0])}></Input>
         </FormControl>
