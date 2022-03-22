@@ -9,6 +9,7 @@ import axios from 'axios'
 import './styles.css'
 import ScrollableChat from './ScrollableChat'
 import io from 'socket.io-client'
+import BeatLoader from "react-spinners/BeatLoader";
 
 const ENDPOINT = "http://localhost:5000";
 var socket,selectedChatCompare;
@@ -200,7 +201,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                         )}
 
                         <FormControl onKeyDown={sendMessage} isRequired mt={3}>
-                            {isTyping?<div>Loading...</div>:(<></>)}
+                            {isTyping?<BeatLoader/>:(<></>)}
                             <Input variant="filled"
                                 bg="#E0E0E0"
                                 placeholder="Enter a message.."
