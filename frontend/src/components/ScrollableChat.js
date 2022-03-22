@@ -5,8 +5,8 @@ import { isLastMessage, isSameSender, isSameSenderMargin, isSameUser } from '../
 import { ChatState } from '../Context/ChatProvider';
 
 const ScrollableChat = ({ messages }) => {
-  console.log("from feed");
-  console.log(messages);
+  // console.log("from feed");
+  // console.log(messages);
   const { user } = ChatState();
   return (
     <ScrollableFeed>
