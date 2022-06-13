@@ -154,7 +154,7 @@ const Signup = () => {
             <Input type={'file'} p={1.5} accept='image/*' onChange={(event)=>postDetails(event.target.files[0])}></Input>
         </FormControl>
 
-        <Button colorScheme={'blue'} width='100%' style={{marginTop:15}} onClick={submitHandler} isLoading={loading}>Sign Up</Button>
+        <Button colorScheme={'blue'} width='100%' style={{marginTop:15}} onClick={submitHandler} isLoading={loading}>Register</Button>
 
     </VStack>
   )

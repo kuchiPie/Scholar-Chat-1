@@ -81,7 +81,7 @@ const Login = () => {
              </InputGroup>
          </FormControl>
  
-         <Button colorScheme={'blue'} width='100%' style={{marginTop:15}} onClick={submitHandler} isLoading={loading}>Sign Up</Button>
+         <Button colorScheme={'blue'} width='100%' style={{marginTop:15}} onClick={submitHandler} isLoading={loading}>LogIn</Button>
  
      </VStack>
    )
