@@ -49,7 +49,7 @@ const Login = () => {
             });
             localStorage.setItem('userInfo',JSON.stringify(data));
             setLoading(false);
-            history.push('/chats');
+            history.push('https://scholar-chat-orcid.herokuapp.com/chats');
         } catch (error) {
             toast({
                 title:'Error Occured!',

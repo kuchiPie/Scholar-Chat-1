@@ -7,11 +7,13 @@ import ChatProvider from './Context/ChatProvider';
 
 ReactDOM.render(
   <BrowserRouter>
+  {/* <React.StrictMode> */}
     <ChatProvider>
       <ChakraProvider>
         <App />
       </ChakraProvider>
     </ChatProvider>
+    {/* </React.StrictMode> */}
   </BrowserRouter>,
   document.getElementById('root')
 );
