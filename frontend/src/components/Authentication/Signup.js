@@ -103,7 +103,20 @@ const Signup = () => {
             localStorage.setItem('userInfo',JSON.stringify(data));
             setLoading(false);
             // history.push('/chats');
-            window.open('https://scholar-chat-orcid.herokuapp.com/chats','_self')
+            function sleep(ms) {
+                return new Promise((resolve) => setTimeout(resolve, ms));
+              }
+              async function demo() {
+                // for (let i = 0; i < 5; i++) {
+                //   console.log(`Waiting ${i} seconds...`);
+                //   await sleep(i * 1000);
+                // }
+                // history.push("/chats");
+                await sleep(2 * 1000);
+                console.log("done");
+                window.location.reload();
+              }
+              demo();
        } catch (error) {
             toast({
                 title:'Error Occured!',
