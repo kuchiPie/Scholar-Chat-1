@@ -50,7 +50,7 @@ const Login = () => {
             localStorage.setItem('userInfo',JSON.stringify(data));
             setLoading(false);
             // history.push('/chats');
-            window.open('https://scholar-chat-orcid.herokuapp.com/chats')
+            window.open('https://scholar-chat-orcid.herokuapp.com/chats','self')
         } catch (error) {
             toast({
                 title:'Error Occured!',
