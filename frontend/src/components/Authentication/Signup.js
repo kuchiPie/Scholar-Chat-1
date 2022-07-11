@@ -90,33 +90,34 @@ const Signup = () => {
                    'Content-type':'application/json',
                },
            };
-           const {data}=await axios.post('/api/user',{name,email,password,pic},config);
+           const response=await axios.post('http://localhost:5000/api/user',{name,email,password,pic},config);
 
            toast({
-                title:'Registeration Successful',
+                title:`Registeration Successful, Please Check your email for email verification ${response.message}`,
                 status:'success',
                 duration:5000,
                 isClosable:true,
                 position:'bottom',
             });
 
-            localStorage.setItem('userInfo',JSON.stringify(data));
+            console.log(response.message);
+            // localStorage.setItem('userInfo',JSON.stringify(data));
             setLoading(false);
             // history.push('/chats');
-            function sleep(ms) {
-                return new Promise((resolve) => setTimeout(resolve, ms));
-              }
-              async function demo() {
-                // for (let i = 0; i < 5; i++) {
-                //   console.log(`Waiting ${i} seconds...`);
-                //   await sleep(i * 1000);
-                // }
-                // history.push("/chats");
-                await sleep(2 * 1000);
-                console.log("done");
-                window.location.reload();
-              }
-              demo();
+            // function sleep(ms) {
+            //     return new Promise((resolve) => setTimeout(resolve, ms));
+            //   }
+            //   async function demo() {
+            //     // for (let i = 0; i < 5; i++) {
+            //     //   console.log(`Waiting ${i} seconds...`);
+            //     //   await sleep(i * 1000);
+            //     // }
+            //     // history.push("/chats");
+            //     await sleep(2 * 1000);
+            //     console.log("done");
+            //     window.location.reload();
+            //   }
+            //   demo();
        } catch (error) {
             toast({
                 title:'Error Occured!',

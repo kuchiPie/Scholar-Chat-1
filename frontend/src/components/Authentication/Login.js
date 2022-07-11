@@ -56,24 +56,37 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      setLoading(false);
-      //   history.push("/chats");
-      // window.open('https://scholar-chat-orcid.herokuapp.com/chats','self')
-      function sleep(ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
+      if(data.message){
+        toast({
+          title: "Please Verify Your Email",
+          description: data.message,
+          status: "info",
+          duration: 5000,
+          isClosable: true,
+          position: "bottom",
+        });
+        setLoading(false);
       }
-      async function demo() {
-        // for (let i = 0; i < 5; i++) {
-        //   console.log(`Waiting ${i} seconds...`);
-        //   await sleep(i * 1000);
-        // }
-        // history.push("/chats");
-        await sleep(2 * 1000);
-        console.log("done");
-        window.location.reload();
+      else{
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        setLoading(false);
+        //   history.push("/chats");
+        // window.open('https://scholar-chat-orcid.herokuapp.com/chats','self')
+        function sleep(ms) {
+          return new Promise((resolve) => setTimeout(resolve, ms));
+        }
+        async function demo() {
+          // for (let i = 0; i < 5; i++) {
+          //   console.log(`Waiting ${i} seconds...`);
+          //   await sleep(i * 1000);
+          // }
+          // history.push("/chats");
+          await sleep(2 * 1000);
+          console.log("done");
+          window.location.reload();
+        }
+        demo();
       }
-      demo();
       //   window.localStorage.reload();
     } catch (error) {
       toast({
