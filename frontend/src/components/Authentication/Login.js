@@ -49,13 +49,6 @@ const Login = () => {
         config
       );
 
-      toast({
-        title: "Login Successful",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-        position: "bottom",
-      });
       if(data.message){
         toast({
           title: "Please Verify Your Email",
@@ -69,6 +62,13 @@ const Login = () => {
       }
       else{
         localStorage.setItem("userInfo", JSON.stringify(data));
+        toast({
+          title: "Login Successful",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+          position: "bottom",
+        });
         setLoading(false);
         //   history.push("/chats");
         // window.open('https://scholar-chat-orcid.herokuapp.com/chats','self')
