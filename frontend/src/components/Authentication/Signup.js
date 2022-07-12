@@ -90,7 +90,7 @@ const Signup = () => {
                    'Content-type':'application/json',
                },
            };
-           const response=await axios.post('http://localhost:5000/api/user',{name,email,password,pic},config);
+           const response=await axios.post('/api/user',{name,email,password,pic},config);
 
            toast({
                 title:`Registeration Successful, Please Check your email for email verification ${response.message}`,
